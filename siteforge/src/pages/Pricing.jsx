@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, Menu, X, Globe } from "lucide-react";
+import Navbar from "../component/Navbar";
 
 // Custom Switch component (unchanged)
 const Switch = ({ checked, onChange }) => (
@@ -19,31 +20,14 @@ const Switch = ({ checked, onChange }) => (
   </div>
 );
 
-const Button = ({ children, className, ...props }) => (
-  <motion.button
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-    className={`px-4 py-2 rounded-md font-medium ${className}`}
-    {...props}
-  >
-    {children}
-  </motion.button>
-);
 
-const NavItem = ({ item }) => (
-  <motion.a
-    href="#"
-    className="text-sm font-medium"
-    whileHover={{ scale: 1.1 }}
-  >
-    {item}
-  </motion.a>
-);
+
+
 
 export function Pricing() {
   const [isYearly, setIsYearly] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
 
   const navItems = ["About", "Solutions", "Contact", "Pricing"];
 
@@ -109,75 +93,9 @@ export function Pricing() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
-      <motion.header
-        className="flex items-center justify-between px-4 py-4 bg-white"
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ type: "spring", stiffness: 100 }}
-      >
-        <div className="flex items-center space-x-6">
-          <motion.a
-            href="/"
-            className="text-2xl font-bold"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            SiteForge
-          </motion.a>
-          <nav className="hidden md:flex space-x-4">
-            {navItems.map((item) => (
-              <NavItem key={item} item={item} />
-            ))}
-          </nav>
-        </div>
-        <div className="flex items-center space-x-4">
-          <motion.a href="#" className="hidden md:inline-flex items-center text-sm font-medium" whileHover={{ scale: 1.1 }}>
-            Enterprise
-          </motion.a>
-          <Button className="hidden md:inline-flex items-center text-sm">
-            <Globe className="w-4 h-4 mr-2" />
-            EN
-          </Button>
-          <Button className="text-sm">
-            Log In
-          </Button>
-          <Button className="bg-blue-600 text-white hover:bg-blue-700 text-sm">
-            Get Started
-          </Button>
-          <Button className="md:hidden" onClick={toggleMobileMenu}>
-            <Menu className="w-6 h-6" />
-          </Button>
-        </div>
-      </motion.header>
-
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ type: 'tween', duration: 0.3 }}
-            className="fixed inset-0 z-50 bg-white"
-          >
-            <div className="flex justify-end p-4">
-              <button onClick={() => setIsMobileMenuOpen(false)} className="text-2xl">&times;</button>
-            </div>
-            <nav className="flex flex-col items-center space-y-4">
-              {[...navItems, 'Enterprise'].map((item) => (
-                <motion.a
-                  key={item}
-                  href="#"
-                  className="text-lg font-medium"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {item}
-                </motion.a>
-              ))}
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      
+       <Navbar/>
+      
 
     
       
