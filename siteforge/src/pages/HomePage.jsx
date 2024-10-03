@@ -1,64 +1,22 @@
 import React, { useState } from 'react'
 import { createPortal } from 'react-dom'
+import { Link } from 'react-router-dom'
+import Navbar from '../component/Navbar'
 import { Globe, Menu } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
-import {Link} from 'react-router-dom'
 
-const Button = ({ children, className, ...props }) => (
-  <motion.button
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-    className={`px-2 py-1 rounded-md font-medium ${className}`}
-    {...props}
-  >
-    {children}
-  </motion.button>
-)
 
-const NavItem = ({ item }) => (
-  <motion.a
-    href="#"
-    className="text-sm font-medium"
-    whileHover={{ scale: 1.1 }}
-  >
-    {item}
-  </motion.a>
-)
-
-const MobileMenu = ({ isOpen, onClose }) => {
-  if (!isOpen) return null
-
-  return createPortal(
-    <motion.div
-      initial={{ opacity: 0, x: '100%' }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: '100%' }}
-      transition={{ type: 'tween', duration: 0.3 }}
-      className="fixed inset-0 z-50 bg-white"
+export default function Homepage() {
+  const Button = ({ children, className, ...props }) => (
+    <motion.button
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      className={`px-2 py-1 rounded-md font-medium ${className}`}
+      {...props}
     >
-      <div className="flex justify-end p-4">
-        <button onClick={onClose} className="text-2xl">&times;</button>
-      </div>
-      <nav className="flex flex-col items-center space-y-4">
-        {['About', 'Contact', 'Pricing', 'Enterprise'].map((item) => (
-          <motion.a
-            key={item}
-            href="#"
-            className="text-lg font-medium"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {item}
-          </motion.a>
-        ))}
-      </nav>
-    </motion.div>,
-    document.body
+      {children}
+    </motion.button>
   )
-}
-
-const Homepage = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
@@ -73,54 +31,12 @@ const Homepage = () => {
       }
     }
   }
+    return (
+        <div className="w-full font-sans">
+           
+         <Navbar/>
 
-  return (
-    <div className="flex flex-col min-h-screen">
-      <motion.header
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ type: 'spring', stiffness: 100 }}
-        className="flex items-center justify-between px-4 py-4 bg-white"
-      >
-        <div className="flex items-center space-x-6">
-          <motion.a
-            href="/"
-            className="text-2xl font-bold"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            SiteForge
-          </motion.a>
-          <nav className="hidden md:flex space-x-4">
-            <NavItem item={<Link to="/about">About</Link>} />
-            <NavItem item={<Link to="/solutions">Solutions</Link>} />
-            <NavItem item={<Link to="/contact">Contact</Link>} />
-            <NavItem item={<Link to="/pricing">Pricing</Link>} />
-          </nav>
-        </div>
-        <div className="flex items-center space-x-4">
-          <motion.a href="#" className="hidden md:inline-flex items-center text-sm font-medium" whileHover={{ scale: 1.1 }}>
-            Enterprise
-          </motion.a>
-          <Button className="hidden md:inline-flex items-center text-sm">
-            <Globe className="w-4 h-4 mr-2" />
-            EN
-          </Button>
-          <Button className="text-sm">
-            Log In
-          </Button>
-          <Button className="bg-blue-600 text-white hover:bg-blue-700 text-sm">
-            Get Started
-          </Button>
-          <Button className="md:hidden" onClick={() => setIsMobileMenuOpen(true)}>
-            <Menu className="w-6 h-6" />
-          </Button>
-        </div>
-      </motion.header>
-      <AnimatePresence>
-        {isMobileMenuOpen && <MobileMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />}
-      </AnimatePresence>
-      <main className="flex-grow">
+         <main className="flex-grow">
         <motion.section
           initial="initial"
           animate="animate"
@@ -148,39 +64,9 @@ const Homepage = () => {
             Start for free. No credit card required.
           </motion.p>
         </motion.section>
-        <motion.section
-          initial="initial"
-          animate="animate"
-          variants={stagger}
-          className="py-20 px-4"
-        >
-          <div className="max-w-6xl mx-auto">
-            <motion.h2
-              variants={fadeIn}
-              className="text-4xl md:text-6xl font-bold mb-16 text-center leading-tight"
-            >
-              One platform,<br />infinite possibilities
-            </motion.h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              {['Build a website', 'Manage your business', 'Grow online'].map((title, index) => (
-                <motion.div key={index} variants={fadeIn}>
-                  <h3 className="text-xl font-semibold mb-4">{title}</h3>
-                  <p className="text-gray-600 mb-4">
-                    {index === 0 && 'Design with a full suite of intuitive tools and powerful AI to create the site you want.'}
-                    {index === 1 && 'Streamline your day-to-day with built-in business solutions, tailored to your needs.'}
-                    {index === 2 && 'Expand your reach and monetize your website with integrated tools built for your success.'}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-            <motion.div variants={fadeIn} className="text-center mt-12">
-              <Button className="bg-black text-white hover:bg-gray-800 text-lg px-8 py-6">
-                Get Started
-              </Button>
-            </motion.div>
-          </div>
-        </motion.section>
-        <motion.section
+           
+            
+         <motion.section
           initial="initial"
           animate="animate"
           variants={stagger}
@@ -233,9 +119,64 @@ const Homepage = () => {
             </motion.div>
           </div>
         </motion.section>
-      </main>
-    </div>
-  )
+        </main>
+           
+           {/* ------------------------------------ */}
+           
+            
+
+            <div className="w-full bg-fixed bg-cover bg-center py-64 relative" style={{backgroundImage: "url('https://images.pexels.com/photos/7759167/pexels-photo-7759167.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')"}}>
+                <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+                <div className="max-w-7xl mx-auto relative z-10">
+                    <div className="w-2/3">
+                        <h2 className="text-5xl font-extrabold text-white leading-tight animate-fadeInUp">
+                            Discover the Magic of<br />Parallax Effects!
+                        </h2>
+                    </div>
+                </div>
+            </div>
+           
+            <div className="max-w-7xl mx-auto py-32">
+                <div className="flex space-x-12">
+                    <div className="w-1/3 text-center transform hover:scale-105 transition duration-300">
+                        <img src="https://images.pexels.com/photos/192273/pexels-photo-192273.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Smartphone" className="w-full rounded-lg shadow-lg mb-6" />
+                        <h3 className="text-2xl font-bold mb-4 text-gray-800">Pexels Image Integration</h3>
+                        <p className="text-gray-600">Find the perfect royalty-free image in seconds with our integrated image search feature!</p>
+                    </div>
+                    <div className="w-1/3 bg-gradient-to-br from-pink-500 to-yellow-300 p-8 rounded-lg shadow-2xl transform hover:scale-105 transition duration-300">
+                        <h3 className="text-3xl font-bold text-white mb-6">
+                            Create Beautiful Gradients!
+                        </h3>
+                        <p className="text-gray-800 text-lg">Craft stunning gradients with just a few clicks and slider adjustments!</p>
+                    </div>
+                    <div className="w-1/3 bg-gray-100 p-8 rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
+                        <h3 className="text-2xl font-bold mb-6 text-gray-800">Emojis Galore! 😎</h3>
+                        <p className="text-gray-600 mb-6">Sprinkle emojis throughout your content for that extra flair!</p>
+                        <ul className="text-left space-y-4 text-gray-700">
+                            <li className="flex items-center"><span className="text-2xl mr-4">🦉</span>Wise Emoji List Item</li>
+                            <li className="flex items-center ml-8"><span className="text-2xl mr-4">✅</span>Checkmark for Emphasis</li>
+                            <li className="flex items-center"><span className="text-2xl mr-4">🦉</span>Another Wise Point</li>
+                            <li className="flex items-center ml-8"><span className="text-2xl mr-4">🐹</span>Cute Subpoint (Mind Blown!)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+          
+
+          
+            <div className="max-w-7xl mx-auto py-32 bg-gray-100 rounded-lg shadow-inner my-0">
+                <div className="flex items-center">
+                    <div className="w-2/3 pr-12">
+                        <h2 className="text-5xl font-bold mb-8 text-gray-800 animate-fadeInLeft">Why Wait?</h2>
+                        <h3 className="text-3xl text-gray-600 animate-fadeInLeft animation-delay-300">Let's Start Creating Something Extraordinary!</h3>
+                    </div>
+                    <div className="w-1/3 h-64 bg-cover bg-center rounded-lg shadow-2xl transform -rotate-3 hover:rotate-0 transition duration-500" style={{backgroundImage: "url('https://images.pexels.com/photos/7129700/pexels-photo-7129700.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')"}}></div>
+                </div>
+            </div>
+
+           
+        </div>
+    )
 }
-    
-export default Homepage;
