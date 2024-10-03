@@ -8,7 +8,7 @@ const Button = ({ children, className, ...props }) => (
   <motion.button
     whileHover={{ scale: 1.05 }}
     whileTap={{ scale: 0.95 }}
-    className={`px-4 py-3 rounded-md font-medium ${className}`}
+    className={`px-2 py-1 rounded-md font-medium ${className}`}
     {...props}
   >
     {children}
