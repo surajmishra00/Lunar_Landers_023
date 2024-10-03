@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Send, Phone, MapPin, Mail } from 'lucide-react'
+import Navbar from '../component/Navbar'
 
 const InputField = ({ label, type, placeholder, value, onChange }) => (
   <div className="mb-4">
@@ -40,7 +41,11 @@ const ContactPage = () => {
   }
 
   return (
+    <div className="w-full font-sans">
+        <Navbar/>
+   
     <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+    
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial="initial"
@@ -134,6 +139,7 @@ const ContactPage = () => {
           </motion.div>
         </div>
       </div>
+    </div>
     </div>
   )
 }

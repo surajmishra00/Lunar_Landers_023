@@ -92,9 +92,11 @@ export function Pricing() {
   };
 
   return (
+    <div className="w-full font-sans">
+        <Navbar/>
     <div className="flex flex-col min-h-screen bg-gray-50">
       
-       <Navbar/>
+     
       
 
     
@@ -248,6 +250,7 @@ export function Pricing() {
          
         </div>
       </motion.footer>
+    </div>
     </div>
   );
 }
