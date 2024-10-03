@@ -92,8 +92,8 @@ const Homepage = () => {
             SiteForge
           </motion.a>
           <nav className="hidden md:flex space-x-4">
-            <NavItem item="About" />
-            <NavItem item="Solutions" />
+            <NavItem item={<Link to="/about">About</Link>} />
+            <NavItem item={<Link to="/solutions">Solutions</Link>} />
             <NavItem item={<Link to="/contact">Contact</Link>} />
             <NavItem item={<Link to="/pricing">Pricing</Link>} />
           </nav>
