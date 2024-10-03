@@ -1,18 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { createPortal } from 'react-dom'
-import { ChevronDown, Globe, Menu } from 'lucide-react'
+import { Globe, Menu } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
-
 
 const Button = ({ children, className, ...props }) => (
   <motion.button
     whileHover={{ scale: 1.05 }}
     whileTap={{ scale: 0.95 }}
-    className={`px-4 py-2 rounded-md font-medium ${className}`}
+    className={`px-4 py-3 rounded-md font-medium ${className}`}
     {...props}
   >
     {children}
   </motion.button>
+)
+
+const NavItem = ({ item }) => (
+  <motion.a
+    href="#"
+    className="text-sm font-medium"
+    whileHover={{ scale: 1.1 }}
+  >
+    {item}
+  </motion.a>
 )
 
 const MobileMenu = ({ isOpen, onClose }) => {
@@ -30,7 +39,7 @@ const MobileMenu = ({ isOpen, onClose }) => {
         <button onClick={onClose} className="text-2xl">&times;</button>
       </div>
       <nav className="flex flex-col items-center space-y-4">
-        {['Product', 'Solutions', 'Resources', 'Pricing'].map((item) => (
+        {['Product', 'Solutions', 'Resources', 'Pricing', 'Enterprise'].map((item) => (
           <motion.a
             key={item}
             href="#"
@@ -48,7 +57,7 @@ const MobileMenu = ({ isOpen, onClose }) => {
 }
 
 const Homepage = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
@@ -82,23 +91,13 @@ const Homepage = () => {
             SiteForge
           </motion.a>
           <nav className="hidden md:flex space-x-4">
-            {['Product', 'About', 'Contact'].map((item) => (
-              <motion.div key={item} className="flex items-center" whileHover={{ scale: 1.1 }}>
-                <a href="#" className="text-sm font-medium">
-                  {item}
-                </a>
-                
-              </motion.div>
-            ))}
-            <motion.a href="#" className="text-sm font-medium" whileHover={{ scale: 1.1 }}>
-              Pricing
-            </motion.a>
+            <NavItem item="Product" />
+            <NavItem item="Solutions" />
+            <NavItem item="Resources" />
+            <NavItem item="Pricing" />
           </nav>
         </div>
         <div className="flex items-center space-x-4">
-          <motion.a href="#" className="hidden md:inline-flex items-center text-sm font-medium" whileHover={{ scale: 1.1 }}>
-            Wix Studio
-          </motion.a>
           <motion.a href="#" className="hidden md:inline-flex items-center text-sm font-medium" whileHover={{ scale: 1.1 }}>
             Enterprise
           </motion.a>
@@ -237,5 +236,5 @@ const Homepage = () => {
     </div>
   )
 }
-
+    
 export default Homepage;
