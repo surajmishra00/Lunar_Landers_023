@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, Menu, X } from "lucide-react";
+import { Check, Menu, X, Globe } from "lucide-react";
 
-// Custom Switch component
+// Custom Switch component (unchanged)
 const Switch = ({ checked, onChange }) => (
   <div
     className={`w-14 h-7 flex items-center rounded-full p-1 cursor-pointer ${
@@ -19,16 +19,33 @@ const Switch = ({ checked, onChange }) => (
   </div>
 );
 
+const Button = ({ children, className, ...props }) => (
+  <motion.button
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    className={`px-4 py-2 rounded-md font-medium ${className}`}
+    {...props}
+  >
+    {children}
+  </motion.button>
+);
+
+const NavItem = ({ item }) => (
+  <motion.a
+    href="#"
+    className="text-sm font-medium"
+    whileHover={{ scale: 1.1 }}
+  >
+    {item}
+  </motion.a>
+);
+
 export function Pricing() {
   const [isYearly, setIsYearly] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const navItems = [
-    { name: "Pricing", path: "/pricing" },
-    { name: "Templates", path: "/templates" },
-    { name: "Features", path: "/features" },
-  ];
+  const navItems = ["About", "Solutions", "Contact", "Pricing"];
 
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
@@ -83,6 +100,7 @@ export function Pricing() {
       ],
       cta: "Upgrade to Business",
     },
+ 
   ];
 
   const toggleMobileMenu = () => {
@@ -92,83 +110,80 @@ export function Pricing() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
       <motion.header
-        className="px-4 lg:px-6 h-16 flex items-center sticky top-0 z-50 bg-white shadow-md"
+        className="flex items-center justify-between px-4 py-4 bg-white"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ type: "spring", stiffness: 100 }}
       >
-        <Link to="/" className="flex items-center space-x-2">
-          <motion.div
-            whileHover={{ rotate: 360 }}
-            transition={{ duration: 0.5 }}
-            className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center"
+        <div className="flex items-center space-x-6">
+          <motion.a
+            href="/"
+            className="text-2xl font-bold"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
           >
-            <span className="text-white font-bold text-xl">W</span>
-          </motion.div>
-          <span className="text-xl font-bold text-blue-600">WebCraft</span>
-        </Link>
-        <nav className="ml-auto hidden md:flex gap-6">
-          {navItems.map(({ name, path }) => (
-            <motion.div
-              key={name}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Link
-                to={path}
-                className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors"
-              >
-                {name}
-              </Link>
-            </motion.div>
-          ))}
-        </nav>
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="ml-6 bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded text-sm font-medium"
-        >
-          Get Started
-        </motion.button>
-        <button className="ml-4 md:hidden" onClick={toggleMobileMenu}>
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+            SiteForge
+          </motion.a>
+          <nav className="hidden md:flex space-x-4">
+            {navItems.map((item) => (
+              <NavItem key={item} item={item} />
+            ))}
+          </nav>
+        </div>
+        <div className="flex items-center space-x-4">
+          <motion.a href="#" className="hidden md:inline-flex items-center text-sm font-medium" whileHover={{ scale: 1.1 }}>
+            Enterprise
+          </motion.a>
+          <Button className="hidden md:inline-flex items-center text-sm">
+            <Globe className="w-4 h-4 mr-2" />
+            EN
+          </Button>
+          <Button className="text-sm">
+            Log In
+          </Button>
+          <Button className="bg-blue-600 text-white hover:bg-blue-700 text-sm">
+            Get Started
+          </Button>
+          <Button className="md:hidden" onClick={toggleMobileMenu}>
+            <Menu className="w-6 h-6" />
+          </Button>
+        </div>
       </motion.header>
 
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden bg-white shadow-md"
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: 'tween', duration: 0.3 }}
+            className="fixed inset-0 z-50 bg-white"
           >
-            <nav className="flex flex-col items-center py-4">
-              {navItems.map(({ name, path }) => (
-                <Link
-                  key={name}
-                  to={path}
-                  className="text-sm font-medium hover:text-blue-600 transition-colors py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
+            <div className="flex justify-end p-4">
+              <button onClick={() => setIsMobileMenuOpen(false)} className="text-2xl">&times;</button>
+            </div>
+            <nav className="flex flex-col items-center space-y-4">
+              {[...navItems, 'Enterprise'].map((item) => (
+                <motion.a
+                  key={item}
+                  href="#"
+                  className="text-lg font-medium"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  {name}
-                </Link>
+                  {item}
+                </motion.a>
               ))}
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="mt-4 bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded text-sm font-medium"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Get Started
-              </motion.button>
             </nav>
           </motion.div>
         )}
       </AnimatePresence>
 
+    
+      
+      {/* Main content */}
       <main className="flex-1">
+       
         <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-600">
           <motion.div
             className="container px-4 md:px-6 mx-auto"
@@ -301,6 +316,7 @@ export function Pricing() {
         </section>
       </main>
 
+      {/* Footer */}
       <motion.footer
         className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t"
         initial={{ opacity: 0 }}
@@ -309,21 +325,13 @@ export function Pricing() {
       >
         <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full justify-between">
           <div className="text-gray-500 text-sm md:text-base">
-            &copy; {new Date().getFullYear()} WebCraft. All rights reserved.
+            &copy; {new Date().getFullYear()} SiteForge. All rights reserved.
           </div>
-          <nav className="flex flex-wrap justify-center gap-4">
-            {navItems.map(({ name, path }) => (
-              <Link
-                key={name}
-                to={path}
-                className="text-xs md:text-sm font-medium text-gray-500 hover:text-blue-600 transition-colors"
-              >
-                {name}
-              </Link>
-            ))}
-          </nav>
+         
         </div>
       </motion.footer>
     </div>
   );
 }
+
+export default Pricing;

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { createPortal } from 'react-dom'
 import { Globe, Menu } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import {Link} from 'react-router-dom'
 
 const Button = ({ children, className, ...props }) => (
   <motion.button
@@ -39,7 +40,7 @@ const MobileMenu = ({ isOpen, onClose }) => {
         <button onClick={onClose} className="text-2xl">&times;</button>
       </div>
       <nav className="flex flex-col items-center space-y-4">
-        {['Product', 'Solutions', 'Resources', 'Pricing', 'Enterprise'].map((item) => (
+        {['About', 'Contact', 'Pricing', 'Enterprise'].map((item) => (
           <motion.a
             key={item}
             href="#"
@@ -91,10 +92,10 @@ const Homepage = () => {
             SiteForge
           </motion.a>
           <nav className="hidden md:flex space-x-4">
-            <NavItem item="Product" />
+            <NavItem item="About" />
             <NavItem item="Solutions" />
-            <NavItem item="Resources" />
-            <NavItem item="Pricing" />
+            <NavItem item={<Link to="/contact">Contact</Link>} />
+            <NavItem item={<Link to="/pricing">Pricing</Link>} />
           </nav>
         </div>
         <div className="flex items-center space-x-4">
