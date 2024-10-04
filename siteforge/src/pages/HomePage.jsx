@@ -1,5 +1,4 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
+
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
@@ -23,6 +22,9 @@ export default function Homepage() {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.6 },
+  };
+  const handleRedirect = () => {
+    window.location.href = '/login'; // 
   };
 
   const stagger = {
@@ -57,7 +59,8 @@ export default function Homepage() {
             advanced business solutions—we've got you covered.
           </motion.p>
           <motion.div variants={fadeIn}>
-            <Button className="bg-white text-[#4517ff] hover:bg-gray-100 text-lg px-8 py-6">
+            <Button className="bg-white text-[#4517ff] hover:bg-gray-100 text-lg px-8 py-6" onClick={handleRedirect} >
+            
               Get Started
             </Button>
           </motion.div>
