@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Navbar from "../component/Navbar";
-
 import Footer from "../component/Footer";
 
 export default function Homepage() {

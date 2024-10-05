@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
-import { Check, Menu, X, Globe } from "lucide-react";
+import { motion } from "framer-motion";
+import { Check } from "lucide-react";
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
 

@@ -1,7 +1,5 @@
 import React from 'react'
 import Navbar from '../component/Navbar'  
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import Footer from '../component/Footer';
 const About = () => {
   return (
