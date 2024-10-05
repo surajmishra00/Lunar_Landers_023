@@ -7,6 +7,7 @@ import About from "../pages/About";
 
 import { Pricing } from "../pages/Pricing";
 import Login from "../pages/Login";
+import RegisterPage from "../pages/RegisterPage";
 
 function AllRoutes() {
   return (
@@ -17,6 +18,7 @@ function AllRoutes() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<RegisterPage/>} />
       </Routes>
     </div>
   );

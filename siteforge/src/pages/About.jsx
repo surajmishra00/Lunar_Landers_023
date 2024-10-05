@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../component/Navbar'  
-
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 const About = () => {
   return (
     <div>
@@ -20,14 +21,14 @@ const About = () => {
 
         <section className="flex flex-col md:flex-row gap-8 py-12">
           <div className="flex-1 text-center p-6 shadow-lg rounded-lg bg-gray-50 transition-transform transform hover:scale-105 hover:bg-purple-50 cursor-pointer">
-            <h2 className="text-2xl font-semibold text-purple-700">Our Mission</h2>
+            <h2 className="text-2xl font-semibold text-[#4517ff]">Our Mission</h2>
             <p className="mt-4 text-gray-600">
               We aim to provide you with a limitless website-building experience to help 
               you achieve your online ambitions effortlessly.
             </p>
           </div>
           <div className="flex-1 text-center p-6 shadow-lg rounded-lg bg-gray-50 transition-transform transform hover:scale-105 hover:bg-purple-50 cursor-pointer">
-            <h2 className="text-2xl font-semibold text-purple-700">Why Choose Us?</h2>
+            <h2 className="text-2xl font-semibold text-[#4517ff]">Why Choose Us?</h2>
             <p className="mt-4 text-gray-600">
               Our platform is user-friendly, adaptable, and packed with features to 
               support businesses of all sizes. Whether you're an entrepreneur or an 
@@ -35,7 +36,7 @@ const About = () => {
             </p>
           </div>
           <div className="flex-1 text-center p-6 shadow-lg rounded-lg bg-gray-50 transition-transform transform hover:scale-105 hover:bg-purple-50 cursor-pointer">
-            <h2 className="text-2xl font-semibold text-purple-700">What We Offer</h2>
+            <h2 className="text-2xl font-semibold text-[#4517ff]">What We Offer</h2>
             <ul className="mt-4 space-y-2 text-gray-600">
               <li>🚀 AI-Powered Website Builder</li>
               <li>🖱️ Drag-and-Drop Editor</li>
@@ -45,7 +46,7 @@ const About = () => {
           </div>
         </section>
 
-        <section className="text-center py-16 bg-purple-700 text-white rounded-lg">
+        <section className="text-center py-16 bg-[#4517ff] text-white rounded-lg">
           <h3 className="text-3xl font-bold">Join Us Today!</h3>
           <p className="mt-4 text-lg max-w-2xl mx-auto">
             Start building the website of your dreams with our feature-rich, easy-to-use platform. 
@@ -55,7 +56,28 @@ const About = () => {
             Get Started
           </button>
         </section>
+
+        
       </div>
+      <motion.footer
+        className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t bg-gray-800"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5 }}
+      >
+        <p className="text-xs text-white ">
+          © 2024 SiteForge. All rights reserved.
+        </p>
+        <nav className="sm:ml-auto flex gap-4 sm:gap-6  text-white">
+          <Link className="text-xs hover:underline underline-offset-4" to="#">
+            Terms of Service
+          </Link>
+          <Link className="text-xs hover:underline underline-offset-4" to="#">
+            Privacy
+          </Link>
+        </nav>
+      </motion.footer>
+      
     </div>
   )
 }

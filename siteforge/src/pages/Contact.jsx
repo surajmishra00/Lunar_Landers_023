@@ -126,7 +126,7 @@ const ContactPage = () => {
                 <div className="space-y-6">
                   <div className="flex items-center">
                     <Phone className="w-6 h-6 text-blue-500 mr-3" />
-                    <span>+1 (555) 123-4567</span>
+                    <span>9111733035</span>
                   </div>
                   <div className="flex items-center">
                     <Mail className="w-6 h-6 text-blue-500 mr-3" />
@@ -134,7 +134,7 @@ const ContactPage = () => {
                   </div>
                   <div className="flex items-center">
                     <MapPin className="w-6 h-6 text-blue-500 mr-3" />
-                    <span>123 Bandra Kurla Complex (BKC), BomBay City, 400051</span>
+                    <span>123 Machal Dhar Road Indore, 453001</span>
                   </div>
                 </div>
               </div>
