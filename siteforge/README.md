@@ -1,14 +1,13 @@
 # Project Title
 
 ## Introduction
-'''
+```
 Project Introduction: SiteForge - Website Builder
  SiteForge is a dynamic and user-friendly website builder that simplifies the web development for users of all technical skill levels. It provides an intuitive platform where users can effortlessly create, design, and deploy responsive websites without needing deep coding expertise.
-'''
-'''
+
 Purpose:
 The purpose of SiteForge is to empower users to build professional-quality websites quickly and efficiently. It serves individuals, small businesses, and developers looking to create a personalized online presence with minimal effort.
-'''
+
 Core Functionality:
 Drag-and-Drop Interface: Users can select elements like headers, footers, navigation bars, and content blocks, and easily arrange them on a page.
 Pre-designed Templates: Choose from a variety of professionally designed templates, customizable to fit individual branding needs.
@@ -21,7 +20,7 @@ Problem Solved:
 Lunar Landers solves the problem of complicated website creation for users who lack programming skills. It eliminates the need for extensive coding, allowing anyone to build and launch a fully functional, professional website in minutes. The tool bridges the gap between complete beginners and experienced developers by providing both ease of use and customization options.
 
 The platform accelerates the development process, reducing time spent on repetitive tasks, and offers a cost-effective solution for businesses and individuals aiming to create an online presence.
-
+```
 ## Project Type
 Frontend 
 
@@ -31,6 +30,7 @@ Backend: https://deployed-site.whatever
 Database: https://deployed-site.whatever
 
 ## Directory Structure
+```
 Lunar_Landers_023/
 │
 ├── node_modules/
@@ -59,7 +59,7 @@ Lunar_Landers_023/
 ├── .gitignore
 ├── eslint.config.js
 └── README.md (if applicable)
-
+```
 
 ## Video Walkthrough of the project
 
@@ -68,6 +68,8 @@ Lunar_Landers_023/
 
 ## Features
 List out the key features of your application.
+
+```
 
 -Drag-and-Drop Interface: Simplified design process with an easy-to-use drag-and-drop builder, requiring no coding skills.
 -Pre-designed Templates: Choose from a variety of customizable templates for different industries and purposes.
@@ -79,7 +81,7 @@ List out the key features of your application.
 -Media Library: Centralized media management for uploading and organizing images, videos, and documents.
 -Cross-browser Compatibility: Websites are optimized for all major browsers (Chrome, Firefox, Safari, etc.).
 
-
+```
 
 
 ## design decisions or assumptions
@@ -119,9 +121,10 @@ Provide user credentials for autheticated pages
 
 ## Technology Stack
 List and provide a brief overview of the technologies used in the project.
-
+```
 - HTML
 - tailwind CSS and Custom Css
 - Javascript
 - React.js
 - Firebase
+```
