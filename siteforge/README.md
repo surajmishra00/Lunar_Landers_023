@@ -1,7 +1,7 @@
 # Project Title
 
 ## Introduction
-```
+
 Project Introduction: SiteForge - Website Builder
  SiteForge is a dynamic and user-friendly website builder that simplifies the web development for users of all technical skill levels. It provides an intuitive platform where users can effortlessly create, design, and deploy responsive websites without needing deep coding expertise.
 
@@ -20,7 +20,6 @@ Problem Solved:
 Lunar Landers solves the problem of complicated website creation for users who lack programming skills. It eliminates the need for extensive coding, allowing anyone to build and launch a fully functional, professional website in minutes. The tool bridges the gap between complete beginners and experienced developers by providing both ease of use and customization options.
 
 The platform accelerates the development process, reducing time spent on repetitive tasks, and offers a cost-effective solution for businesses and individuals aiming to create an online presence.
-```
 ## Project Type
 Frontend 
 
