@@ -80,7 +80,7 @@ const RegisterPage = () => {
       toast.success("Registration successful!"); // Success toast
       // Navigate to the dashboard or another page on successful registration
       setTimeout(() => {
-        navigate("/codeEditor"); // Example route after registration
+        navigate("/login"); // Example route after registration
       }, 2000);
     } catch (error) {
       if (error.code === "auth/weak-password") {
