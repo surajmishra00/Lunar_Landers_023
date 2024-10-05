@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, Menu, X, Globe } from "lucide-react";
 import Navbar from "../component/Navbar";
+import Footer from "../component/Footer";
 
 // Custom Switch component (unchanged)
 const Switch = ({ checked, onChange }) => (
@@ -236,20 +237,8 @@ export function Pricing() {
         </section>
       </main>
 
-      {/* Footer */}
-      <motion.footer
-        className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
-      >
-        <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full justify-between">
-          <div className="text-gray-500 text-sm md:text-base">
-            &copy; {new Date().getFullYear()} SiteForge. All rights reserved.
-          </div>
-         
-        </div>
-      </motion.footer>
+      <Footer/>
+      
     </div>
     </div>
   );

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Send, Phone, MapPin, Mail } from 'lucide-react'
 import Navbar from '../component/Navbar'
+import Footer from '../component/Footer'
 
 const InputField = ({ label, type, placeholder, value, onChange }) => (
   <div className="mb-4">
@@ -142,6 +143,8 @@ const ContactPage = () => {
           </div>
         </div>
       </div>
+
+      <Footer/>
     </div>
   )
 }
