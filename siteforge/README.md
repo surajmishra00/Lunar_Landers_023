@@ -71,13 +71,21 @@ List out the key features of your application.
 ```
 
 -Drag-and-Drop Interface: Simplified design process with an easy-to-use drag-and-drop builder, requiring no coding skills.
+
 -Pre-designed Templates: Choose from a variety of customizable templates for different industries and purposes.
+
 -Responsive Design: Ensures websites automatically adapt to various screen sizes (desktop, tablet, mobile).
+
 -User Authentication: Secure login and registration functionality for users to manage their projects.
+
 -Customizable Components: Ability to add and modify components like forms, images, videos, buttons, etc.
+
 -Real-Time Editing: Live preview feature to view changes instantly while editing the website.
+
 -One-click Publishing: Easy hosting and deployment of websites with just a single click.
+
 -Media Library: Centralized media management for uploading and organizing images, videos, and documents.
+
 -Cross-browser Compatibility: Websites are optimized for all major browsers (Chrome, Firefox, Safari, etc.).
 
 ```
