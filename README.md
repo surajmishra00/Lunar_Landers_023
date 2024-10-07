@@ -24,9 +24,7 @@ The platform accelerates the development process, reducing time spent on repetit
 Frontend 
 
 ## Deplolyed App
-Frontend: https://deployed-site.whatever
-Backend: https://deployed-site.whatever
-Database: https://deployed-site.whatever
+https://keen-cuchufli-b93992.netlify.app/
 
 ## Directory Structure
 ```
@@ -61,8 +59,13 @@ Lunar_Landers_023/
 ```
 
 ## Video Walkthrough of the project
+https://youtu.be/EI9SIiWfMwg
 
-## Video Walkthrough of the codebase
+
+## Video Presentaion
+https://youtu.be/gwAOVdyX5dw
+
+
 
 
 ## Features
