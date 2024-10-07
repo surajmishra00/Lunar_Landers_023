@@ -114,17 +114,11 @@ npm run dev
 
 ```
 
-## Usage
-Provide instructions and examples on how to use your project.
 
-```bash
-# Example
-```
 
-Include screenshots as necessary.
 
-## Credentials
-Provide user credentials for autheticated pages
+
+
 
 
 
