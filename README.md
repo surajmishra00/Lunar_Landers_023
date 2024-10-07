@@ -94,8 +94,7 @@ List out the key features of your application.
 ```
 
 
-## design decisions or assumptions
-List your design decisions & assumptions
+
 
 ## Installation & Getting started
 Detailed instructions on how to install, configure, and get the project running. For BE/FS projects, guide the reviewer how to check Mongodb schema etc.
