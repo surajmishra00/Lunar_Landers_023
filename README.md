@@ -58,16 +58,6 @@ Lunar_Landers_023/
 └── README.md (if applicable)
 ```
 
-## Video Walkthrough of the project
-https://youtu.be/EI9SIiWfMwg
-
-
-## Video Presentaion
-https://youtu.be/gwAOVdyX5dw
-
-
-
-
 ## Features
 List out the key features of your application.
 
